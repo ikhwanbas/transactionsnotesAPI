@@ -96,9 +96,9 @@ function add(tableName, body) {
  * @param {Object} body updated data
  */
 function edit(tableName, id, body) {
-  const parsedId = parseInt(id)
-  db.get(tableName)
-    .find({ id: parsedId })
+  // const parsedId = parseInt(id)
+  return db.get(tableName)
+    .find({ id })
     .assign(body)
     .write()
 }
@@ -109,9 +109,9 @@ function edit(tableName, id, body) {
  * @param {String|Number} id data id
  */
 function remove(tableName, id) {
-  const parsedId = parseInt(id)
-  db.get(tableName)
-    .remove({ id: parsedId })
+  // const parsedId = parseInt(id)
+  return db.get(tableName)
+    .remove({ id })
     .write()
 }
 
@@ -121,7 +121,7 @@ function remove(tableName, id) {
  * @param {String|Number} id data id
  */
 function removeAll(tableName) {
-  db.get(tableName)
+  return db.get(tableName)
     .remove({})
     .write()
 }
